@@ -1,0 +1,109 @@
+# Environment
+.env
+.env.local
+.env.*.local
+.env.st*
+
+# IDE
+.idea/
+.DS_Store
+
+# Playwright
+node_modules/
+/test-results/
+/test-results-temp/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+/playwright/.auth/
+/allure-results
+/allure-report
+/allure-report/
+/allure-history/
+
+# Logs
+*.log
+test-run*.log
+test-debug*.log
+
+# Screenshots (debug)
+test-case*.png
+/*.png
+
+# Temp files
+nul
+*.xlsx
+*.pptx
+*.pdf
+_b64.txt
+${targetName}
+
+# Archives
+*.tar.gz
+
+# IDE
+.claude/
+
+# TestRail run tracking
+.testrail-run-id
+
+# Frontend reference (large)
+frontend-reference/
+n.mcp.json
+.mcp.json
+
+# Notion exports
+notion-export/
+
+# Docs (generated / exported)
+docs/
+
+# Knowledge base (generated)
+knowledge-base/
+
+# Debug / temp scripts in root
+build-knowledge-base.cjs
+enhance-knowledge-base.cjs
+check-score-data.cjs
+
+# Debug scripts (prefixed with _)
+scripts/_*
+
+# Playwright MCP cache
+.playwright-mcp/
+
+# Test run outputs (root-level)
+test-output*.txt
+c????_*.txt
+c7262_*.txt
+debug-output.txt
+cal_run_output.txt
+calibration_run*.txt
+network-*.txt
+autofix-devplans-list.txt
+test-results-*.txt
+test-integration-run.txt
+test-objectives-*.txt
+tr_*.txt
+_commit_files.txt
+.tmp_*
+
+# Bug report drafts / debug notes (root-level)
+bug-report-*.md
+bug-period-filter-no-effect.md
+dashboard-score-distribution-initial.md
+
+# TestRail / run data dumps (root-level)
+cases_*.json
+run??.json
+sections*.json
+tests??.json
+tests??_*.json
+_analyze_*.cjs
+_build_*.cjs
+_check_*.cjs
+_dump_*.cjs
+_parse_*.cjs
+_mark_*.cjs
+_table_*.cjs
+.vscode/

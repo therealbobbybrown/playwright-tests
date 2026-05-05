@@ -1,0 +1,109 @@
+flowchart LR
+  subgraph CORE[Платформа и доступ]
+    AUTH[Auth / Roles]
+    HOME[Home / Dashboard]
+    PROFILE[Profile / Account]
+    SETTINGS[Settings]
+    ORG[Org Structure\n(отделы, группы)]
+    TEAM[My Team]
+    BRAND[Brand]
+  end
+
+  subgraph TALENT[Оценка и развитие]
+    PR[Performance Review]
+    SURV[Surveys]
+    FEED[Feedback]
+    OBJ[Objectives]
+    DEV[Development Plans]
+    COMP[Competencies]
+    NINE[Ninebox]
+  end
+
+  subgraph ENG[Вовлечение и мотивация]
+    VC[Virtual Currency]
+    SHOP[Gift Shop]
+  end
+
+  subgraph SHARED[Общие сервисы]
+    REPORTS[Reports\nXLSX / CSV / PPTX / PDF]
+    NOTIF[Notifications / Email]
+    FLAGS[Feature Flags\n?feature=...]
+    API[API Layer]
+  end
+
+  subgraph DATA[Данные]
+    USERS[(Users)]
+    STRUCT[(Groups / Departments)]
+    REV[(Revisions / Cycles)]
+    QUEST[(Questionnaires / Answers)]
+    HIST[(History / Operations)]
+  end
+
+  AUTH --> HOME
+  AUTH --> PROFILE
+  AUTH --> SETTINGS
+  AUTH --> TEAM
+  SETTINGS --> ORG
+  TEAM --> ORG
+
+  COMP --> PR
+  COMP --> SURV
+  PR --> NINE
+  OBJ --> DEV
+  FEED --> DEV
+  SURV --> FEED
+
+  VC --> SHOP
+  TEAM --> VC
+
+  PR --> REPORTS
+  SURV --> REPORTS
+  VC --> REPORTS
+  HOME --> REPORTS
+
+  PR --> NOTIF
+  SURV --> NOTIF
+  OBJ --> NOTIF
+
+  PR --> FLAGS
+  SURV --> FLAGS
+  VC --> FLAGS
+  HOME --> FLAGS
+
+  API --> PR
+  API --> SURV
+  API --> VC
+  API --> ORG
+  API --> REPORTS
+
+  PR --> REV
+  SURV --> REV
+  PR --> QUEST
+  SURV --> QUEST
+  FEED --> QUEST
+
+  AUTH --> USERS
+  TEAM --> USERS
+  ORG --> STRUCT
+  PR --> STRUCT
+  SURV --> STRUCT
+
+  VC --> HIST
+  PR --> HIST
+  SURV --> HIST
+
+  REPORTS --> REV
+  REPORTS --> QUEST
+  REPORTS --> STRUCT
+
+  classDef core fill:#DDEBFF,stroke:#4F7ECF,color:#0B2C6D,stroke-width:1.5px;
+  classDef talent fill:#E6F6EA,stroke:#3F8F5A,color:#104B26,stroke-width:1.5px;
+  classDef engagement fill:#FFF2DD,stroke:#C98A2E,color:#6E4300,stroke-width:1.5px;
+  classDef shared fill:#F3E8FF,stroke:#7B5CC9,color:#3A2673,stroke-width:1.5px;
+  classDef data fill:#F7F7F7,stroke:#7A7A7A,color:#333,stroke-width:1.2px;
+
+  class AUTH,HOME,PROFILE,SETTINGS,ORG,TEAM,BRAND core;
+  class PR,SURV,FEED,OBJ,DEV,COMP,NINE talent;
+  class VC,SHOP engagement;
+  class REPORTS,NOTIF,FLAGS,API shared;
+  class USERS,STRUCT,REV,QUEST,HIST data;
